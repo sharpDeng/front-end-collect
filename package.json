@@ -1,12 +1,14 @@
 {
-  "name": "collect",
+  "name": "front-end-collect",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "前端相关收集",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"no test specified\" && exit 0"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "MIT",
+  "devDependencies": {
+    "gitbook-cli": "^2.3.2"
+  }
 }
