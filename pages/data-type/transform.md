@@ -2,4 +2,6 @@
 
 ## 字符串转数值
 
-* `Number`函数，例子： `Number('123')` 输出 `123`
+* `Number`函数，例子：
+    * `Number('123')` 输出 `123`
+    * `Number('hello')` 输出 `NAN`
