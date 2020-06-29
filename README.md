@@ -1,2 +1,3 @@
 # front-end-collect
-前端相关收集
+
+前端知识或技巧收集
