@@ -6,7 +6,7 @@
     "test": "echo \"no test specified\" && exit 0"
   },
   "keywords": [],
-  "author": "",
+  "author": "timwk",
   "license": "MIT",
   "devDependencies": {
     "gitbook-cli": "^2.3.2"
