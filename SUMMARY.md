@@ -4,17 +4,25 @@
 
 ### 函数（Function）
 
+* [防抖函数](pages/function/debounce.md)
+* [节流函数](pages/function/throttling.md)
+<!-- * [柯里化函数](/pages/function/) -->
+
 ### 数组（Array)
+
+<!-- * [常用方法总结和说明](/pages/array/fn)
+* [骚操作总结](/pages/)
+* [数组循环优化总结](/pages/) -->
 
 ### 对象（plain Object）
 
 ### 字符串（String）
 
-### 数组（Number）
+### 数字（Number）
 
 ### 数据类型
 
-* [类型转换](/pages/data-type/transform.md)
+* [类型转换](pages/data-type/transform.md)
 
 ## VUE技巧
 
