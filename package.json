@@ -1,0 +1,14 @@
+{
+  "name": "front-end-collect",
+  "version": "1.0.0",
+  "description": "前端相关收集",
+  "scripts": {
+    "test": "echo \"no test specified\" && exit 0"
+  },
+  "keywords": [],
+  "author": "timwk",
+  "license": "MIT",
+  "devDependencies": {
+    "gitbook-cli": "^2.3.2"
+  }
+}

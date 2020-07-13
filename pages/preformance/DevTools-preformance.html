@@ -1,0 +1,588 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>preformance选项卡的（页面性能报告生成和解读） · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="error-monitoring.html" />
+    
+    
+    <link rel="prev" href="../data-type/transform.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">JavaScript技巧</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">函数（Function）</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../function/debounce.html">
+            
+                <a href="../function/debounce.html">
+            
+                    
+                    防抖函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../function/throttling.html">
+            
+                <a href="../function/throttling.html">
+            
+                    
+                    节流函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">数组（Array)</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../array/fnc.md">
+            
+                <span>
+            
+                    
+                    常用方法总结和说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">对象（plain Object）</li>
+        
+        
+    
+
+    
+        
+        <li class="header">字符串（String）</li>
+        
+        
+    
+
+    
+        
+        <li class="header">数字（Number）</li>
+        
+        
+    
+
+    
+        
+        <li class="header">数据类型</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../data-type/transform.html">
+            
+                <a href="../data-type/transform.html">
+            
+                    
+                    类型转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">VUE技巧</li>
+        
+        
+    
+
+    
+        
+        <li class="header">CSS技巧或常用</li>
+        
+        
+    
+
+    
+        
+        <li class="header">性能优化</li>
+        
+        
+    
+        <li class="chapter active" data-level="10.1" data-path="DevTools-preformance.html">
+            
+                <a href="DevTools-preformance.html">
+            
+                    
+                    preformance选项卡的（页面性能报告生成和解读）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" data-path="error-monitoring.html">
+            
+                <a href="error-monitoring.html">
+            
+                    
+                    页面优化-脚本错误监控上报与Script error
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">GIT</li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" data-path="../git/README.md">
+            
+                <span>
+            
+                    
+                    github相关收集
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >preformance选项卡的（页面性能报告生成和解读）</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <style>
+
+  .note {
+    padding: 16px 24px;
+    font-size: 14px;
+  }
+  .promiry {
+    background-color: #e1f5fe;
+    color: #01579b;
+  }
+  .warn {
+    background: #feefe3;
+    color: #bf360c;
+  }
+  .icon {
+    display: inline!import;
+    margin: 0!important;
+    box-shadow: none;
+  }
+</style>
+
+<h1 id="&#x524D;&#x8A00;">&#x524D;&#x8A00;</h1>
+<p>&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;Google&#x5F00;&#x53D1;&#x8005;&#x4E2D;<a href="chrome&#x7684;&#x5F00;&#x53D1;&#x8005;&#x5DE5;&#x5177;&#xFF0C;&#x7531;&#x51E0;&#x4E2A;&#x9009;&#x9879;&#x5361;&#x5DE5;&#x5177;&#x7EC4;&#x6210;&#x3002;" title="Devtools&#x662F;&#x4EC0;&#x4E48;">DevTools</a>&#x6587;&#x6863;Performance&#x90E8;&#x5206;&#x7684;&#x82F1;&#x6587;&#x8BD1;&#x6587;&#xFF0C;&#x5982;&#x6709;&#x7FFB;&#x8BD1;&#x4E0D;&#x5BF9;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x5E0C;&#x671B;&#x5927;&#x5BB6;&#x6307;&#x51FA;  </p>
+<p>&#x539F;&#x6587;&#xFF1A;<a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance" target="_blank">https://developers.google.com/web/tools/chrome-devtools/evaluate-performance</a><br>&#x4F5C;&#x8005;&#xFF1A; Kayce Basques<br>&#x8BD1;&#x8005;&#xFF1A; Timwk</p>
+<p><em>&#x6CE8;&#xFF1A;&#x672A;&#x7ECF;&#x8BB8;&#x53EF;&#xFF0C;&#x8BF7;&#x52FF;&#x8F6C;&#x8F7D;</em></p>
+<h1 id="&#x6B63;&#x6587;">&#x6B63;&#x6587;</h1>
+<p><strong><em>&#x6CE8;&#xFF1A;&#x53EF;&#x4EE5;&#x67E5;&#x770B;<a href="https://developers.google.com/web/tools/chrome-devtools/speed/get-started" target="_blank">&#x4F18;&#x5316;&#x7F51;&#x7AD9;&#x901F;&#x5EA6;</a>&#x4EE5;&#x4E86;&#x89E3;&#x5982;&#x4F55;&#x4F7F;&#x60A8;&#x7684;&#x9875;&#x9762;&#x52A0;&#x8F7D;&#x901F;&#x5EA6;&#x66F4;&#x5FEB;&#x3002;</em></strong></p>
+<p>&#x8FD0;&#x884C;&#x6027;&#x80FD;&#xFF08;Runtime performance&#xFF09;&#x662F;&#x9875;&#x9762;&#x8FD0;&#x884C;&#xFF08;&#x800C;&#x4E0D;&#x662F;&#x52A0;&#x8F7D;&#xFF09;&#x65F6;&#x7684;&#x6027;&#x80FD;&#x3002; &#x672C;&#x6559;&#x7A0B;&#x5C06;&#x6559;&#x60A8;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x201C;Chrome DevTools&#x201D;&#x7684;&#x6027;&#x80FD;&#x9009;&#x9879;&#x5361;(performance)&#x6765;&#x5206;&#x6790;&#x8FD0;&#x884C;&#x6027;&#x80FD;&#x3002; &#x5728;<a href="https://web.dev/rail/" target="_blank">RAIL(response, animation, idle, load)</a>&#x6A21;&#x578B;&#x65B9;&#x9762;&#xFF0C;&#x60A8;&#x5728;&#x672C;&#x6559;&#x7A0B;&#x4E2D;&#x5B66;&#x4E60;&#x7684;&#x6280;&#x80FD;&#x5BF9;&#x4E8E;&#x5206;&#x6790;&#x9875;&#x9762;&#x7684;&#x54CD;&#x5E94;&#xFF0C;&#x52A8;&#x753B;&#x548C;&#x7A7A;&#x95F2;&#x9636;&#x6BB5;&#x5F88;&#x6709;&#x7528;&#x3002;</p>
+<div class="note warn">
+&#x8B66;&#x544A;&#xFF1A;&#x672C;&#x6559;&#x7A0B;&#x57FA;&#x4E8E;Chrome59&#x3002;&#x5982;&#x679C;&#x60A8;&#x4F7F;&#x7528;&#x5176;&#x4ED6;&#x7248;&#x672C;&#x7684;Chrome&#xFF0C;&#x5219;DevTools&#x7684;UI&#x548C;&#x529F;&#x80FD;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x6240;&#x4E0D;&#x540C;&#x3002; &#x68C0;&#x67E5;chrome&#xFF1A;// help&#xFF0C;&#x67E5;&#x770B;&#x60A8;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;Chrome&#x7248;&#x672C;&#x3002;
+</div>
+
+<h2 id="&#x6559;&#x7A0B;&#x5F00;&#x59CB;">&#x6559;&#x7A0B;&#x5F00;&#x59CB;</h2>
+<p>&#x5728;&#x672C;&#x6B21;&#x6559;&#x7A0B;&#x4E2D;&#xFF0C;&#x4F60;&#x5728;&#x9875;&#x9762;&#x4E2D;&#x6253;&#x5F00; <strong>DevTools</strong>&#xFF0C;&#x5E76;&#x4F7F;&#x7528;<strong>Performance</strong> &#x9009;&#x9879;&#x5361;&#x6765;&#x67E5;&#x627E;&#x9875;&#x9762;&#x7684;&#x6027;&#x80FD;&#x74F6;&#x9888;</p>
+<ol>
+<li>&#x5728;&#x9690;&#x8EAB;&#x6A21;&#x5F0F;&#x4E2D;&#x6253;&#x5F00; <strong>Google Chrome</strong>&#x3002;&#x9690;&#x8EAB;&#x6A21;&#x5F0F;&#x80FD;&#x591F;&#x4F7F; <strong>Chrome</strong> &#x8FDB;&#x5165;&#x7EAF;&#x51C0;&#x72B6;&#x6001;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;&#x5982;&#x679C;&#x60A8;&#x5B89;&#x88C5;&#x4E86;&#x8BB8;&#x591A;&#x6D4F;&#x89C8;&#x5668;&#x6269;&#x5C55;&#xFF0C;&#x8FD9;&#x4E9B;&#x6269;&#x5C55;&#x53EF;&#x80FD;&#x4F1A;&#x5E72;&#x6270;&#x6027;&#x80FD;&#x8BC4;&#x4F30;&#xFF0C;&#x5F97;&#x4E0D;&#x5230;&#x51C6;&#x786E;&#x7684;&#x6570;&#x636E;&#xFF1B;</li>
+<li>&#x5728;&#x9690;&#x8EAB;&#x7A97;&#x53E3;&#x4E2D;&#x6253;&#x5F00;&#x4E0B;&#x9762;&#x9875;&#x9762;&#x3002;&#x8FD9;&#x662F;&#x8BE5;&#x6559;&#x7A0B;&#x7684;&#x6F14;&#x793A;&#x9875;&#x9762;&#x3002;&#x8FD9;&#x4E2A;&#x9875;&#x9762;&#x4E2D;&#x663E;&#x793A;&#x4E86;&#x4E00;&#x7FA4;&#x4E0A;&#x4E0B;&#x79FB;&#x52A8;&#x7684;&#x5C0F;&#x84DD;&#x8272;&#x65B9;&#x5757;&#xFF1B;<br><a href="https://googlechrome.github.io/devtools-samples/jank/" target="_blank">https://googlechrome.github.io/devtools-samples/jank/</a></li>
+<li><p>&#x4F7F;&#x7528;&#x5FEB;&#x6377;&#x952E; <strong><em>Command+Option+I</em></strong>(Mac) &#x6216; <strong><em>Control+Shift+I</em></strong>(Windows,Linux) &#x6253;&#x5F00;<code>DevTools</code> ,&#x6548;&#x679C;&#x5982;&#x4E0B;&#x56FE;&#xFF1A;
+&#x2C6;<img src="https://static01.imgkr.com/temp/94bce80b79ef47fbad0a2f8830354564.png" alt="&#x56FE;1">
+<strong>&#x56FE;1</strong> &#x9875;&#x9762;&#x5728;&#x5DE6;&#x8FB9;&#xFF0C;DevTools&#x5728;&#x53F3;&#x8FB9;</p>
+<div class="note promiry">
+&#x6CE8;&#x610F;&#xFF1A;&#x5BF9;&#x4E8E;&#x540E;&#x7EED;&#x5176;&#x4ED6;&#x7684;&#x5C4F;&#x5E55;&#x622A;&#x56FE;&#xFF0C;`DevTools`&#x5C06;&#x4F5C;&#x4E3A;<a url="https://developers.google.com/web/tools/chrome-devtools/customize#placement">&#x5355;&#x72EC;&#x7684;&#x7A97;&#x53E3;</a>&#x51FA;&#x73B0;&#xFF0C;&#x4EE5;&#x4FBF;&#x4F60;&#x80FD;&#x66F4;&#x597D;&#x7684;&#x67E5;&#x770B;&#x5185;&#x5BB9;
+</div>
+
+</li>
+</ol>
+<h2 id="&#x6A21;&#x62DF;&#x79FB;&#x52A8;cpu">&#x6A21;&#x62DF;&#x79FB;&#x52A8;CPU</h2>
+<p>&#x4E0E;&#x53F0;&#x5F0F;&#x7535;&#x8111;&#x548C;&#x7B14;&#x8BB0;&#x672C;&#x76F8;&#x6BD4;&#xFF0C;&#x79FB;&#x52A8;&#x8BBE;&#x5907;&#x7684;CPU&#x7684;&#x6027;&#x80FD;&#x8981;&#x4F4E;&#x5F88;&#x591A;&#x3002;&#x6240;&#x4EE5;&#x5F53;&#x4F60;&#x5206;&#x6790;&#x9875;&#x9762;&#xFF0C;&#x4E00;&#x822C;&#x4F7F;&#x7528;CPU&#x9650;&#x5236;&#x6765;&#x6A21;&#x62DF;&#x9875;&#x9762;&#x5728;&#x79FB;&#x52A8;&#x8BBE;&#x5907;&#x4E0A;&#x7684;&#x8868;&#x73B0;&#xFF1B;</p>
+<ol>
+<li>&#x5728;<strong>Devtools</strong>&#x4E2D;&#xFF0C;&#x5355;&#x51FB;&#x201D;&#x6027;&#x80FD;&#x201C;&#x9009;&#x9879;&#x5361;&#xFF1B;</li>
+<li>&#x786E;&#x5B9A;&#x542F;&#x52A8; <strong>Screenshots</strong> &#x590D;&#x9009;&#x6846;&#xFF1B;</li>
+<li>&#x5355;&#x51FB; <strong>Capture Setting</strong><img class="icon" src="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/imgs/capture-settings.png">&#x3002;<strong>DevTools</strong> &#x4F1A;&#x5C55;&#x5F00;&#x8DDF;&#x6027;&#x80FD;&#x5206;&#x6790;&#x65F6;&#x73AF;&#x5883;&#x76F8;&#x5173;&#x7684;&#x8BBE;&#x7F6E;&#x3002;</li>
+<li>&#x5BF9;&#x4E8E;<strong>CPU</strong>&#x9009;&#x9879;&#xFF0C;&#x9009;&#x62E9;<strong>2x slowdown</strong>&#x3002;DevTools&#x4F1A;&#x9650;&#x5236;&#x4F60;&#x7684;CPU,&#x4F7F;&#x5176;&#x6BD4;&#x6B63;&#x5E38;&#x65F6;&#x6162;2&#x500D;
+<img src="https://static01.imgkr.com/temp/35ef901b4eb64ada8abfd0d9a65369c7.svg" alt="">
+<strong>&#x56FE;2</strong> CPU &#x8282;&#x6D41;&#x8BBE;&#x7F6E;&#xFF0C;&#x84DD;&#x8272;&#x6846;&#x5904;</li>
+</ol>
+<div class="note promiry">
+  &#x6CE8;&#x610F;&#xFF1A;&#x5728;&#x6D4B;&#x8BD5;&#x5176;&#x4ED6;&#x9875;&#x9762;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x786E;&#x4FDD;&#x5B83;&#x4EEC;&#x5728;&#x4F4E;&#x7AEF;&#x79FB;&#x52A8;&#x8BBE;&#x5907;&#x4E0A;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#xFF0C;&#x8BF7;&#x5C06;CPU&#x9650;&#x5236;&#x8BBE;&#x7F6E;&#x4E3A;20&#x500D;&#x901F;&#x5EA6;&#x51CF;&#x6162;&#x3002; &#x6B64;&#x6F14;&#x793A;&#x65E0;&#x6CD5;&#x4E0E;20&#x500D;&#x7684;&#x51CF;&#x901F;&#x4E00;&#x8D77;&#x5F88;&#x597D;&#x5730;&#x5DE5;&#x4F5C;&#xFF0C;&#x56E0;&#x6B64;&#x4EC5;&#x5C06;2&#x500D;&#x7684;&#x51CF;&#x901F;&#x7528;&#x4E8E;&#x6559;&#x5B66;&#x76EE;&#x7684;&#x3002;<br>  
+&#x8BD1;&#x8005;&#x6CE8;&#xFF1A;&#x76EE;&#x524D;&#x7684;&#x624B;&#x673A;cpu&#x6027;&#x80FD;&#x5DF2;&#x8FDC;&#x8D85;&#x4E4B;&#x524D;&#xFF0C;&#x76EE;&#x524D;chrome&#x4E2D;&#x53EA;&#x80FD;&#x8BBE;&#x7F6E;4x\6x
+</div>
+
+<h2 id="&#x6F14;&#x793A;&#x8BBE;&#x7F6E;">&#x6F14;&#x793A;&#x8BBE;&#x7F6E;</h2>
+<p>&#x56E0;&#x4E3A;&#x5F88;&#x96BE;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x4F7F;&#x6240;&#x6709;&#x7528;&#x6237;&#x90FD;&#x8868;&#x73B0;&#x4E00;&#x81F4;&#x7684;&#x8FD0;&#x884C;&#x6027;&#x80FD;<a href="&#x56E0;&#x4E3A;&#x7528;&#x6237;&#x7684;&#x8BBE;&#x5907;&#x914D;&#x7F6E;&#x548C;performance&#x9009;&#x9879;&#x7248;&#x914D;&#x7F6E;&#x7684;&#x4E0D;&#x540C;&#x3002;" title="&#x65E0;&#x6CD5;&#x5F97;&#x5230;&#x8868;&#x73B0;&#x4E00;&#x81F4;&#x7684;&#x6F14;&#x793A;&#xFF08;&#x8BD1;&#x8005;&#x6CE8;&#xFF09;">&#x6F14;&#x793A;&#x9875;&#x9762;</a>&#x3002;&#x63A5;&#x4E0B;&#x6765;&#x4F60;&#x9700;&#x8981;&#x81EA;&#x5B9A;&#x4E49;&#x6F14;&#x793A;&#xFF0C;&#x4EE5;&#x786E;&#x4FDD;&#x5728;&#x4F60;&#x7684;&#x6761;&#x4EF6;&#x4E0B;&#xFF0C;&#x4F60;&#x7684;&#x4F53;&#x9A8C;&#x4E0E;&#x672C;&#x6559;&#x7A0B;&#x4E2D;&#x770B;&#x5230;&#x7684;&#x5C4F;&#x5E55;&#x622A;&#x56FE;&#x548C;&#x8BF4;&#x660E;&#x76F8;&#x5BF9;&#x4E00;&#x81F4;&#xFF1B;</p>
+<ol>
+<li><p>&#x5355;&#x51FB;&#x201C;Add 10&#x201D; &#x6309;&#x94AE;&#xFF0C;&#x77E5;&#x9053;&#x84DD;&#x8272;&#x65B9;&#x5757;&#x7684;&#x79FB;&#x52A8;&#x901F;&#x5EA6;&#x660E;&#x663E;&#x6BD4;&#x521D;&#x59CB;&#x65F6;&#x6162;&#x3002;&#x5728;&#x6027;&#x80FD;&#x597D;&#x7684;&#x8BA1;&#x7B97;&#x673A;&#x4E0A;&#xFF0C;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x7EA6;20&#x6B21;&#x7684;&#x70B9;&#x51FB;</p>
+</li>
+<li><p>&#x5355;&#x51FB;&#x201C;Optimize&#x201D;&#xFF08;&#x4F18;&#x5316;&#xFF09;&#x6309;&#x94AE;&#xFF0C;&#x84DD;&#x8272;&#x65B9;&#x5757;&#x80FD;&#x79FB;&#x52A8;&#x5F97;&#x66F4;&#x5FEB;&#x66F4;&#x7A33;</p>
+</li>
+</ol>
+<div class="note promiry">
+  &#x6CE8;&#x610F;&#xFF1A;&#x5982;&#x679C;&#x4F60;&#x770B;&#x4E0D;&#x5230;&#x4F18;&#x5316;&#x548C;&#x672A;&#x4F18;&#x5316;&#x7248;&#x4E4B;&#x95F4;&#x7684;&#x660E;&#x663E;&#x5DEE;&#x5F02;&#xFF0C;&#x8BF7;&#x5C1D;&#x8BD5;&#x5355;&#x51FB;&#x201C;Subtract 10&#x201D;&#x6309;&#x94AE;&#x51E0;&#x6B21;&#xFF0C;&#x7136;&#x540E;&#x91CD;&#x8BD5;&#x4E0A;&#x9762;&#x64CD;&#x4F5C;&#x3002;&#x5982;&#x679C;&#x6DFB;&#x52A0;&#x8FC7;&#x591A;&#x7684;&#x84DD;&#x8272;&#x65B9;&#x5757;&#xFF0C;&#x5219;&#x53EA;&#x4F1A;&#x4F7F;CPU&#x8FBE;&#x5230;&#x6700;&#x5927;&#x503C;&#xFF0C;&#x800C;&#x4E0D;&#x4F1A;&#x770B;&#x5230;&#x4E24;&#x4E2A;&#x7248;&#x672C;&#x7684;&#x7ED3;&#x679C;&#x6709;&#x592A;&#x5927;&#x7684;&#x5DEE;&#x5F02;&#xFF1B;
+</div>
+
+<ol>
+<li>&#x5355;&#x51FB; &#x201D;Un-Optimize&#x201C;&#x6309;&#x94AE;&#x3002;&#x84DD;&#x8272;&#x65B9;&#x5757;&#x7684;&#x79FB;&#x52A8;&#x901F;&#x5EA6;&#x4F1A;&#x53D8;&#x6162;&#x548C;&#x9875;&#x9762;&#x53D8;&#x5F97;&#x5361;&#x987F;</li>
+</ol>
+<h2 id="&#x8BB0;&#x5F55;&#x8FD0;&#x884C;&#x6027;&#x80FD;">&#x8BB0;&#x5F55;&#x8FD0;&#x884C;&#x6027;&#x80FD;</h2>
+<p>&#x5F53;&#x60A8;&#x8FD0;&#x884C;&#x9875;&#x9762;&#x7684;&#x4F18;&#x5316;&#x7248;&#x672C;&#x65F6;&#xFF0C;&#x84DD;&#x8272;&#x65B9;&#x5757;&#x79FB;&#x52A8;&#x5F97;&#x66F4;&#x5FEB;&#x3002; &#x8FD9;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#xFF1F; &#x4E24;&#x79CD;&#x7248;&#x672C;&#x90FD;&#x5E94;&#x5728;&#x76F8;&#x540C;&#x7684;&#x65F6;&#x95F4;&#x5185;&#x5C06;&#x6BCF;&#x4E2A;&#x6B63;&#x65B9;&#x5F62;&#x79FB;&#x52A8;&#x76F8;&#x540C;&#x7684;&#x7A7A;&#x95F4;&#x3002; &#x5728;<strong>performance</strong>&#x9009;&#x9879;&#x5361;&#x4E2D;&#x8FDB;&#x884C;&#x5F55;&#x5236;&#xFF0C;&#x53EF;&#x4EE5;&#x4E86;&#x89E3;&#x5982;&#x4F55;&#x68C0;&#x6D4B;&#x672A;&#x4F18;&#x5316;&#x7248;&#x672C;&#x4E2D;&#x7684;&#x6027;&#x80FD;&#x74F6;&#x9888;&#x3002;</p>
+<ol>
+<li>&#x5728;<strong>DevTools</strong>&#x4E2D;&#xFF0C;&#x5355;&#x51FB;&#x201C;Record&#x201D;&#x3002;<strong>DevTools</strong> &#x6355;&#x83B7;&#x9875;&#x9762;&#x8FD0;&#x884C;&#x65F6;&#x7684;&#x6027;&#x80FD;&#x6307;&#x6807;&#x3002;</li>
+</ol>
+<p><img src="https://static01.imgkr.com/temp/f908b88cd1ce4e6e9ceb9ebe75b9b491.png" alt="">
+<strong>&#x56FE;3</strong>&#xFF1A;&#x9875;&#x9762;&#x5206;&#x6790;</p>
+<ol>
+<li>&#x7B49;&#x51E0;&#x79D2;&#x949F;&#x3002;</li>
+<li>&#x70B9;&#x51FB; &#x201D;Stop&#x201C; &#x6309;&#x94AE;&#xFF0C;<strong>DevTools</strong> &#x505C;&#x6B62;&#x8BB0;&#x5F55;&#xFF0C;&#x5904;&#x7406;&#x6570;&#x636E;&#xFF0C;&#x7136;&#x540E;&#x5728;<strong>performance</strong>&#x9009;&#x9879;&#x5361;&#x4E0A;&#x663E;&#x793A;&#x6700;&#x7EC8;&#x7ED3;&#x679C;
+<img src="https://static01.imgkr.com/temp/224dd3a769354e799842fe53fb147f43.png" alt="">
+<strong>&#x56FE;4</strong>&#xFF1A;&#x5206;&#x6790;&#x7ED3;&#x679C;</li>
+</ol>
+<p>wow, &#x8FD9;&#x662F;&#x6570;&#x636E;&#x91CF;&#x4E5F;&#x592A;&#x5927;&#x4E86;&#x5427;&#x3002;&#x4F46;&#x4E0D;&#x7528;&#x62C5;&#x5FC3;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x4F60;&#x5C31;&#x4F1A;&#x77E5;&#x9053;&#x8FD9;&#x4E9B;&#x6570;&#x636E;&#x7684;&#x542B;&#x4E49;&#x7684;&#xFF1B;</p>
+<h2 id="&#x7ED3;&#x679C;&#x5206;&#x6790;">&#x7ED3;&#x679C;&#x5206;&#x6790;</h2>
+<p>&#x8BB0;&#x5F55;&#x4E86;&#x9875;&#x9762;&#x7684;&#x6027;&#x80FD;&#x540E;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x8861;&#x91CF;&#x9875;&#x9762;&#x7684;&#x6027;&#x80FD;&#x6709;&#x591A;&#x5DEE;&#xFF0C;&#x5E76;&#x627E;&#x51FA;&#x539F;&#x56E0;&#x3002;</p>
+<h2 id="&#x5206;&#x6790;&#x6BCF;&#x79D2;&#x5E27;&#x6570;&#xFF08;frames-per-second&#x7B80;&#x79F0;&#xFF1A;fps">&#x5206;&#x6790;&#x6BCF;&#x79D2;&#x5E27;&#x6570;&#xFF08;Frames Per Second,&#x7B80;&#x79F0;&#xFF1A;FPS)</h2>
+<p>&#x8861;&#x91CF;&#x52A8;&#x753B;&#x6027;&#x80FD;&#x7684;&#x4E3B;&#x8981;&#x6307;&#x6807;&#x662F;&#x6BCF;&#x79D2;&#x5E27;&#x6570;&#xFF08;FPS&#xFF09;&#x3002; <a href="&#x4E0E;&#x4EBA;&#x773C;&#x8BC6;&#x522B;&#x6709;&#x5173;&#x7CFB;" title="&#x4E3A;&#x4EC0;&#x4E48;&#x662F;60 FPS">&#x5F53;&#x52A8;&#x753B;&#x4EE5;60 FPS&#x8FD0;&#x884C;&#x65F6;&#xFF0C;&#x7528;&#x6237;&#x770B;&#x7740;&#x662F;&#x6D41;&#x7545;&#x7684;</a>&#x3002;</p>
+<ol>
+<li><p>&#x67E5;&#x770B;<strong>FPS</strong>&#x8868;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x5728;&#x56FE;&#x6807;&#x7684;&#x4E0A;&#x65B9;&#x770B;&#x5230;&#x7EA2;&#x8272;&#x6761;&#xFF0C;&#x5219;&#x8868;&#x793A;&#x9875;&#x9762;&#x5E27;&#x6570;&#x5F88;&#x4F4E;&#xFF0C;&#x4F1A;&#x5F71;&#x54CD;&#x7528;&#x6237;&#x7684;&#x4F7F;&#x7528;&#x4F53;&#x9A8C;&#xFF08;&#x8BD1;&#x8005;&#xFF1A;&#x4F1A;&#x8BA9;&#x7528;&#x6237;&#x89C9;&#x5F97;&#x6709;&#x5361;&#x987F;&#x51FA;&#x73B0;&#xFF09;
+<img src="https://static01.imgkr.com/temp/eeea679819984fe5a3403b1e262829c9.svg" alt="">
+<strong>&#x56FE;5</strong>&#xFF1A;&#x84DD;&#x6846;&#x6807;&#x8BC6;&#x7684;&#x662F; FPS &#x56FE;&#x8868;</p>
+</li>
+<li><p>&#x5728; FPS &#x56FE;&#x8868;&#x4E0B;&#x65B9;&#xFF0C;&#x4F60;&#x4F1A;&#x770B;&#x5230;CPU&#x56FE;&#x6807;&#x3002;CPU&#x56FE;&#x8868;&#x4E2D;&#x7684;&#x989C;&#x8272;&#x4E0E;<strong>Performance</strong>&#x9009;&#x9879;&#x5361;&#x5E95;&#x90E8;&#x7684;<strong>Summary</strong>&#x9009;&#x9879;&#x5361;&#x7684;&#x989C;&#x8272;&#x5BF9;&#x5E94;&#x3002;CPU&#x56FE;&#x8868;&#x4E2D;&#xFF0C;&#x989C;&#x8272;&#x586B;&#x5145;&#x7684;&#x9AD8;&#x5EA6;&#x8D8A;&#x9AD8;&#x5219;&#x8868;&#x793A;&#x4F7F;&#x7528;CPU&#x7684;&#x8D44;&#x6E90;&#x8D8A;&#x591A;&#x3002;&#x5F53;&#x4F60;&#x770B;&#x5230;CPU&#x957F;&#x65F6;&#x95F4;&#x5904;&#x4E8E;&#x6EE1;&#x8D1F;&#x8377;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x5BFB;&#x627E;&#x51CF;&#x5C11;&#x4F7F;&#x7528;CPU&#x7684;&#x65B9;&#x6CD5;&#xFF1B;
+&#x2C6;<img src="https://static01.imgkr.com/temp/9a4ae016d99046088438434c85fd217f.svg" alt=""></p>
+</li>
+</ol>
+<p><strong>&#x56FE;6</strong>&#xFF1A;&#x84DD;&#x6846;&#x6807;&#x8BC6;CPU&#x56FE;&#x6807;&#x548C;<strong>Summary</strong>&#x9009;&#x9879;&#x5361;</p>
+<ol>
+<li><p>&#x5C06;&#x9F20;&#x6807;&#x60AC;&#x505C;&#x5728;FPS&#xFF0C;CPU&#x6216;NET&#x56FE;&#x8868;&#x4E0A;&#x3002; <strong>DevTools</strong>&#x5C06;&#x663E;&#x793A;&#x8BE5;&#x65F6;&#x95F4;&#x70B9;&#x7684;&#x9875;&#x9762;&#x622A;&#x56FE;&#x3002; &#x5DE6;&#x53F3;&#x79FB;&#x52A8;&#x9F20;&#x6807;&#x4EE5;&#x663E;&#x793A;&#x8BB0;&#x5F55;&#x3002; &#x8FD9;&#x79F0;&#x4E3A; scrubbing(&#x8BD1;&#x8005;&#xFF1A;&#x8FD9;&#x91CC;&#x6682;&#x65F6;&#x6CA1;&#x627E;&#x5230;&#x5408;&#x9002;&#x7684;&#x7FFB;&#x8BD1;)&#xFF0C;&#x5BF9;&#x4E8E;&#x624B;&#x52A8;&#x5206;&#x6790;&#x52A8;&#x753B;&#x7684;&#x64AD;&#x653E;&#x5F88;&#x6709;&#x7528;&#x3002;
+<img src="https://static01.imgkr.com/temp/8b05f7caea0645a48ee4b37d7eae063d.png" alt="">
+<strong>&#x56FE;7</strong>&#xFF1A;&#x67E5;&#x770B;&#x8BB0;&#x5F55;&#x4E2D;&#x7EA6;2000ms&#x5904;&#x9875;&#x9762;&#x7684;&#x5C4F;&#x5E55;&#x622A;&#x56FE;</p>
+</li>
+<li><p>&#x5728;&#x201C;Frames&#x201D;(&#x5E27;)&#x90E8;&#x5206;&#xFF0C;&#x5C06;&#x9F20;&#x6807;&#x60AC;&#x505C;&#x5728;&#x67D0;&#x4E2A;&#x7EFF;&#x8272;&#x7684;&#x65B9;&#x5757;&#x4E0A;&#xFF0C;<strong>DevTools</strong> &#x4F1A;&#x663E;&#x793A;&#x7279;&#x5B9A;&#x5E27;&#x7684;FPS,&#x5E27;&#x6570;&#x53EF;&#x80FD;&#x8FDC;&#x8FDC;&#x8FBE;&#x4E0D;&#x5230; 60 FPS &#x7684;&#x76EE;&#x6807;&#xFF1B;</p>
+</li>
+</ol>
+<p><img src="https://static01.imgkr.com/temp/aa57d61ea4c34342a437bc95fef7c198.png" alt=""></p>
+<p><strong>&#x56FE;8</strong>&#xFF1A;&#x60AC;&#x505C;&#x5728;&#x5E27;&#x4E0A;</p>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x6F14;&#x793A;&#x4E0A;&#xFF0C;&#x6211;&#x4EEC;&#x80FD;&#x5F88;&#x660E;&#x663E;&#x7684;&#x770B;&#x51FA;&#x9875;&#x9762;&#x6548;&#x679C;&#x4E0D;&#x597D;&#x3002;&#x4F46;&#x5728;&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#x4E2D;&#xFF0C;&#x53EF;&#x80FD;&#x4E0D;&#x4F1A;&#x5F88;&#x660E;&#x663E;&#xFF0C;&#x56E0;&#x6B64;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x5DE5;&#x5177;&#x80FD;&#x5F88;&#x65B9;&#x4FBF;&#x7684;&#x8FDB;&#x884C;&#x68C0;&#x6D4B;&#x3002;</p>
+<h2 id="&#x989D;&#x5916;&#xFF1A;&#x6253;&#x5F00;-fps-&#x4EEA;&#x8868;">&#x989D;&#x5916;&#xFF1A;&#x6253;&#x5F00; FPS &#x4EEA;&#x8868;</h2>
+<p>&#x53E6;&#x4E00;&#x4E2A;&#x65B9;&#x4FBF;&#x7684;&#x5DE5;&#x5177;&#x662F;FPS&#x6D4B;&#x91CF;&#x4EEA;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x5728;&#x9875;&#x9762;&#x8FD0;&#x884C;&#x65F6;&#x63D0;&#x4F9B;FPS&#x7684;&#x5B9E;&#x65F6;&#x4F30;&#x7B97;&#x3002;</p>
+<ol>
+<li>&#x6309;Command + Shift + P&#xFF08;Mac&#xFF09;&#x6216;Control + Shift + P&#xFF08;Windows&#xFF0C;Linux&#xFF09;&#x6253;&#x5F00;&#x201C;&#x547D;&#x4EE4;&#x201D;&#x83DC;&#x5355;&#x3002;</li>
+<li>&#x5728;&#x8F93;&#x5165;&#x680F;&#x8F93;&#x5165;&#x201C;Rendering&#x201D;&#xFF0C;&#x7136;&#x540E;&#x9009;&#x62E9;&#x201C;Show Rendering&#x201D;&#x3002;</li>
+<li>&#x5728;<strong>Rendering</strong>&#x9009;&#x9879;&#x5361;&#x4E2D;&#xFF0C;&#x9009;&#x4E2D;<strong>FPS Meter</strong>, &#x4F1A;&#x6709;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x60AC;&#x6D6E;&#x5C42;&#x663E;&#x793A;&#x5728;&#x89C6;&#x56FE;&#x7684;&#x53F3;&#x4E0A;&#x89D2;&#xFF08;MAC&#x662F;&#x5DE6;&#x4E0A;&#x89D2;&#xFF09;&#x3002;
+<img src="https://static01.imgkr.com/temp/a81629378a7e4477b140ca97f271607b.png" alt=""></li>
+</ol>
+<p><strong>&#x56FE;9</strong>&#xFF1A;FPS &#x9762;&#x677F;</p>
+<ol>
+<li>&#x53D6;&#x6D88; FPS Meter&#xFF0C; &#x7136;&#x540E;&#x6309;ESC&#x952E;&#x5173;&#x95ED;<strong>Rendering</strong>&#x9009;&#x9879;&#x5361;&#xFF0C;&#x5728;&#x672C;&#x6559;&#x7A0B;&#x4F60;&#x5C06;&#x7528;&#x4E0D;&#x5230;&#x8FD9;&#x4E2A;&#x9762;&#x677F;&#x3002;</li>
+</ol>
+<h2 id="&#x5BFB;&#x627E;&#x74F6;&#x9888;">&#x5BFB;&#x627E;&#x74F6;&#x9888;</h2>
+<p>&#x73B0;&#x5728;&#xFF0C;&#x60A8;&#x5DF2;&#x7ECF;&#x6D4B;&#x91CF;&#x5E76;&#x9A8C;&#x8BC1;&#x4E86;&#x52A8;&#x753B;&#x6548;&#x679C;&#x4E0D;&#x4F73;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x8981;&#x56DE;&#x7B54;&#x7684;&#x95EE;&#x9898;&#x662F;&#xFF1A;&#x4E3A;&#x4EC0;&#x4E48;&#xFF1F;</p>
+<ol>
+<li>&#x6CE8;&#x610F;<strong>summary</strong>&#x9009;&#x9879;&#x5361;&#x3002; &#x5982;&#x679C;&#x672A;&#x9009;&#x62E9;&#x4EFB;&#x4F55;&#x4E8B;&#x4EF6;&#xFF0C;&#x5219;&#x6B64;&#x9009;&#x9879;&#x5361;&#x663E;&#x793A;&#x6D3B;&#x52A8;&#x7684;&#x5206;&#x7C7B;&#x3002; &#x8BE5;&#x9875;&#x9762;&#x82B1;&#x8D39;&#x4E86;&#x5927;&#x90E8;&#x5206;&#x65F6;&#x95F4;&#x8FDB;&#x884C;&#x6E32;&#x67D3;&#x3002; &#x7531;&#x4E8E;&#x63D0;&#x9AD8;&#x6027;&#x80FD;&#x662F;&#x51CF;&#x5C11;&#x6D4F;&#x89C8;&#x5668;&#x5DE5;&#x4F5C;&#x91CF;&#x7684;&#x827A;&#x672F;&#xFF0C;&#x56E0;&#x6B64;&#x60A8;&#x7684;&#x76EE;&#x6807;&#x662F;&#x51CF;&#x5C11;&#x82B1;&#x8D39;&#x5728;&#x8FDB;&#x884C;&#x6E32;&#x67D3;&#x5DE5;&#x4F5C;&#x4E0A;&#x7684;&#x65F6;&#x95F4;&#x3002;</li>
+</ol>
+<p><img src="https://static01.imgkr.com/temp/9c28958efcd34c6cbcc28c4792cf1e04.svg" alt="">
+<strong>&#x56FE;10</strong>&#xFF1A;&#x84DD;&#x8272;&#x6846;&#x662F;<strong>Summary</strong>&#x9009;&#x9879;&#x5361;</p>
+<ol>
+<li>&#x5C55;&#x5F00;&#x201C;Main&#x201D;&#x90E8;&#x5206;&#x3002; <strong>DevTools</strong> &#x5411;&#x60A8;&#x663E;&#x793A;&#x4E86;&#x4E3B;&#x7EBF;&#x7A0B;&#x968F;&#x65F6;&#x95F4;&#x53D8;&#x5316;&#x7684;&#x6D3B;&#x52A8;&#x56FE;&#x8868;&#x3002; x&#x8F74;&#x8868;&#x793A;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x5185;&#x7684;&#x8BB0;&#x5F55;&#x3002; &#x6BCF;&#x4E2A;&#x6761;&#x5F62;&#x4EE3;&#x8868;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x3002; &#x5BBD;&#x6761;&#x8868;&#x793A;&#x8BE5;&#x4E8B;&#x4EF6;&#x82B1;&#x8D39;&#x4E86;&#x66F4;&#x957F;&#x7684;&#x65F6;&#x95F4;&#x3002; y&#x8F74;&#x8868;&#x793A;&#x8C03;&#x7528;&#x5806;&#x6808;&#x3002; &#x5F53;&#x60A8;&#x770B;&#x5230;&#x4E8B;&#x4EF6;&#x76F8;&#x4E92;&#x53E0;&#x52A0;&#x65F6;&#xFF0C;&#x8868;&#x793A;&#x8F83;&#x9AD8;&#x7684;&#x4E8B;&#x4EF6;&#x8C03;&#x7528;&#x8F83;&#x4F4E;&#x7684;&#x4E8B;&#x4EF6;&#x3002;
+<img src="https://static01.imgkr.com/temp/9dfd7578afee47e28b72fa2c89f16987.svg" alt=""></li>
+</ol>
+<p><strong>&#x56FE;11</strong>&#xFF1A;&#x84DD;&#x8272;&#x6846;&#x662F;&#x201C;Main&#x201D;&#x5757;</p>
+<ol>
+<li>&#x8BB0;&#x5F55;&#x4E2D;&#x6709;&#x5F88;&#x591A;&#x6570;&#x636E;&#x3002; &#x901A;&#x8FC7;&#x5355;&#x51FB;&#xFF0C;&#x6309;&#x4F4F;&#x5E76;&#x5728;&#x201C;&#x6982;&#x8FF0;&#x201D;&#x4E0A;&#x62D6;&#x52A8;&#x9F20;&#x6807;&#x6765;&#x653E;&#x5927;&#x5355;&#x4E2A;<strong>Animation Frame Fired</strong>&#x4E8B;&#x4EF6;&#xFF0C;&#x8BE5;&#x6982;&#x8FF0;&#x662F;&#x5305;&#x62EC;FPS&#xFF0C;CPU&#x548C;NET&#x56FE;&#x8868;&#x7684;&#x90E8;&#x5206;&#x3002; &#x201C;Main&#x201D;&#x5757;&#x548C;&#x201C;summary&#x201D;&#x9009;&#x9879;&#x5361;&#x4EC5;&#x663E;&#x793A;&#x8BB0;&#x5F55;&#x4E2D;&#x6240;&#x9009;&#x90E8;&#x5206;&#x7684;&#x4FE1;&#x606F;&#x3002;
+<img src="https://static01.imgkr.com/temp/36a7273e06da4d4a8c93edb7015f94ee.png" alt="">
+<strong>&#x56FE;12</strong>&#xFF1A;&#x653E;&#x5927;&#x5355;&#x4E2A;<code>Animation Frame Fired</code>&#x4E8B;&#x4EF6;</li>
+</ol>
+<div class="note promiry">
+  &#x6CE8;&#x610F;&#xFF1A;&#x53E6;&#x4E00;&#x79CD;&#x7F29;&#x653E;&#x65B9;&#x6CD5;&#x662F;&#x901A;&#x8FC7;&#x5355;&#x51FB;&quot;Main&quot;&#x5757;&#x7684;&#x80CC;&#x666F;&#x6216;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x6765;&#x805A;&#x7126;&#x89C2;&#x5BDF;&#xFF0C;&#x7136;&#x540E;&#x6309;W&#xFF0C;A&#xFF0C;S&#x548C;D&#x952E;&#xFF08;&#x8BD1;&#x8005;&#xFF1A;W&#x662F;&#x653E;&#x5927;&#xFF0C;S&#x662F;&#x7F29;&#x5C0F;&#xFF0C;S&#x5DE6;&#x79FB;&#xFF0C;D&#x53F3;&#x79FB;&#xFF09;&#x3002;
+</div>
+
+<ol>
+<li>&#x8BF7;&#x6CE8;&#x610F;&#x201C;Animation Frame Fired&#x201D;&#x4E8B;&#x4EF6;&#x53F3;&#x4E0A;&#x89D2;&#x7684;&#x7EA2;&#x8272;&#x4E09;&#x89D2;&#x5F62;&#x3002;&#x4F46;&#x4F60;&#x770B;&#x5230;&#x6709;&#x7EA2;&#x8272;&#x4E09;&#x89D2;&#x5F62;&#x51FA;&#x73B0;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8868;&#x660E;&#x8BE5;&#x4E8B;&#x4EF6;&#x5B58;&#x5728;&#x95EE;&#x9898;&#x3002;</li>
+</ol>
+<div class="note promiry">
+  &#x6CE8;&#x610F;&#xFF1A;&#x5F53;requestAnimationFrame()&#x56DE;&#x8C03;&#x6267;&#x884C;&#x65F6;&#xFF0C;&#x4F1A;&#x89E6;&#x53D1;&#x201C;Animation Frame Fired &#x201D;&#x4E8B;&#x4EF6;&#x7684;&#x89E6;&#x53D1;
+</div>
+
+<ol>
+<li>&#x70B9;&#x51FB;<code>Animation Frame Fired</code>&#x4E8B;&#x4EF6;&#x65F6;&#xFF0C;<strong>Summary</strong>&#x9009;&#x9879;&#x5361;&#x4F1A;&#x663E;&#x793A;&#x8BE5;&#x4E8B;&#x4EF6;&#x7684;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#x3002;&#x6CE8;&#x610F;<code>reveal</code>&#x94FE;&#x63A5;&#xFF0C;&#x70B9;&#x51FB;&#x94FE;&#x63A5;&#xFF0C; <strong>DevTools</strong>&#x4F1A;&#x7A81;&#x51FA;&#x663E;&#x793A;&#x542F;&#x52A8;&#x8BE5;<code>Animation Frame Fired</code>&#x4E8B;&#x4EF6;&#x7684;&#x4E8B;&#x4EF6;&#x3002;&#x540C;&#x65F6;&#x8FD8;&#x8981;&#x6CE8;&#x610F;<code>app.js:94</code>&#x94FE;&#x63A5;&#xFF0C;&#x70B9;&#x51FB;&#x4F1A;&#x8DF3;&#x5230;&#x6E90;&#x4EE3;&#x7801;&#x4E2D;&#x7684;&#x76F8;&#x5173;&#x884C;&#x3002;</li>
+</ol>
+<p><img src="https://static01.imgkr.com/temp/d8e1cf175dc84b20aeaced9d621d9c2d.png" alt=""></p>
+<p><strong>&#x56FE;12</strong>&#xFF1A;&#x5173;&#x4E8E;<code>Animation Frame Fired</code>&#x4E8B;&#x4EF6;&#x7684;&#x66F4;&#x591A;&#x6D88;&#x606F;</p>
+<div class="note promiry">
+  &#x6CE8;&#x610F;&#xFF1A;&#x9009;&#x62E9;&#x4E8B;&#x4EF6;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x65B9;&#x5411;&#x952E;&#x9009;&#x62E9;&#x8BE5;&#x4E8B;&#x4EF6;&#x65C1;&#x8FB9;&#x7684;&#x4E8B;&#x4EF6;
+</div>
+
+<ol>
+<li><p>&#x5728;<code>app.update</code>&#x4E8B;&#x4EF6;&#x4E0B;&#x65B9;&#xFF0C;&#x6709;&#x4E00;&#x5806;&#x7D2B;&#x8272;&#x4E8B;&#x4EF6;&#x3002;&#x5982;&#x679C;&#x5C06;&#x5176;&#x653E;&#x5BBD;&#xFF0C;&#x4F1A;&#x770B;&#x5230;&#x51E0;&#x4E4E;&#x6BCF;&#x4E2A;&#x7D2B;&#x8272;&#x4E8B;&#x4EF6;&#x4E0A;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x7EA2;&#x8272;&#x4E09;&#x89D2;&#x5F62;&#x3002;&#x73B0;&#x5728;&#x5355;&#x51FB;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x7D2B;&#x8272;&#x7684;<code>Layout</code>&#x4E8B;&#x4EF6;&#x3002;&#x67E5;&#x770B;<strong>DevTools</strong>&#x4E2D;&#x7684;<strong>Summary</strong>&#x9009;&#x9879;&#x5361;&#x63D0;&#x4F9B;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x4F1A;&#x53D1;&#x73B0;&#x786E;&#x5B9E;&#x5B58;&#x5728;&#x5F3A;&#x5236;&#x91CD;&#x6392;&#xFF08;reflows)&#x7684;&#x8B66;&#x544A;(&#x4E5F;&#x5C31;&#x662F;&#x5F3A;&#x5236;&#x5E03;&#x5C40;&#x7684;&#x8B66;&#x544A;)</p>
+</li>
+<li><p>&#x5728;<strong>Summary</strong>&#x9009;&#x9879;&#x5361;&#x4E2D;&#xFF0C;&#x5355;&#x51FB;<code>Layout Forced</code>&#x4E0B;&#x7684;<code>app.js:70</code>&#x94FE;&#x63A5;&#xFF0C;<strong>DevTools</strong>&#x4F1A;&#x5207;&#x6362;&#x5230;&#x89E6;&#x53D1;&#x5F3A;&#x5236;&#x5E03;&#x5C40;&#x7684;&#x4EE3;&#x7801;&#x884C;
+<img src="https://static01.imgkr.com/temp/d77865a64e624b32b86b0085bc4cc8f5.png" alt=""></p>
+</li>
+</ol>
+<p><strong>&#x56FE;13</strong>&#xFF1A;&#x89E6;&#x53D1;&#x5F3A;&#x5236;&#x5E03;&#x5C40;&#x7684;&#x4EE3;&#x7801;&#x884C;</p>
+<div class="note promiry">
+  &#x6CE8;&#x610F;&#xFF1A; &#x6B64;&#x4EE3;&#x7801;&#x7684;&#x95EE;&#x9898;&#x662F;: &#x5728;&#x6BCF;&#x5E27;&#x52A8;&#x753B;&#x5E27;&#x4E2D;&#xFF0C;&#x5B83;&#x90FD;&#x4F1A;&#x4FEE;&#x6539;&#x6B63;&#x65B9;&#x5F62;&#x7684;&#x6837;&#x5F0F;&#xFF0C;&#x7136;&#x540E;&#x67E5;&#x8BE2;&#x9875;&#x9762;&#x4E0A;&#x6BCF;&#x4E2A;&#x6B63;&#x65B9;&#x5F62;&#x7684;&#x4F4D;&#x7F6E;&#x3002;&#x7531;&#x4E8E;&#x6837;&#x5F0F;&#x5DF2;&#x88AB;&#x4FEE;&#x6539;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x5C31;&#x4E0D;&#x77E5;&#x9053;&#x6B63;&#x65B9;&#x5F62;&#x7684;&#x4F4D;&#x7F6E;&#x662F;&#x5426;&#x6709;&#x66F4;&#x6539;&#xFF0C;&#x6240;&#x4EE5;&#x5C31;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x5E03;&#x5C40;&#x6B63;&#x65B9;&#x5F62;&#x624D;&#x80FD;&#x8BA1;&#x7B97;&#x5176;&#x4F4D;&#x7F6E;&#x3002;&#x53EF;&#x4EE5;&#x67E5;&#x770B;[ Use transform and opacity changes for animations ](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance)&#x5B66;&#x4E60;&#x66F4;&#x591A;&#x76F8;&#x5173;&#x77E5;&#x8BC6;
+</div>
+
+<p>&#x505A;&#x5F97;&#x5F88;&#x597D;&#xFF0C;&#x6240;&#x4EE5;&#x82B1;&#x8D39;&#x4E86;&#x4E00;&#x4E9B;&#x65F6;&#x95F4;&#xFF0C;&#x4F46;&#x662F;&#x73B0;&#x5728;&#x4F60;&#x5DF2;&#x7ECF;&#x6709;&#x5206;&#x6790;&#x8FD0;&#x884C;&#x6027;&#x80FD;&#x7684;&#x575A;&#x5B9E;&#x57FA;&#x7840;&#x4E86;&#x3002;</p>
+<h2 id="&#x989D;&#x5916;&#xFF1A;&#x5206;&#x6790;&#x4F18;&#x5316;&#x7248;&#x672C;">&#x989D;&#x5916;&#xFF1A;&#x5206;&#x6790;&#x4F18;&#x5316;&#x7248;&#x672C;</h2>
+<p>&#x5355;&#x51FB;&#x6F14;&#x793A;&#x9875;&#x9762;&#x4E0A;&#x7684;<code>Optimize</code>&#x6309;&#x94AE;&#xFF0C;&#x542F;&#x52A8;&#x4F18;&#x5316;&#x4E86;&#x4EE3;&#x7801;&#x7684;&#x7248;&#x672C;&#xFF0C;&#x7136;&#x540E;&#x4F7F;&#x7528;&#x521A;&#x5B66;&#x4E60;&#x7684;&#x6D41;&#x7A0B;&#x548C;&#x5DE5;&#x5177;&#x8FDB;&#x884C;&#x6027;&#x80FD;&#x8BB0;&#x5F55;&#xFF0C;&#x7136;&#x540E;&#x5206;&#x6790;&#x7ED3;&#x679C;&#x3002;&#x4ECE;&#x6539;&#x8FDB;&#x7684;&#x5E27;&#x7387;&#x5230;&#x201C;Main&#x201D;&#x5757;&#x706B;&#x7130;&#x56FE;&#x4E2D;&#x4E8B;&#x4EF6;&#x7684;&#x51CF;&#x5C11;&#xFF0C;&#x4F60;&#x770B;&#x5230;&#x4F18;&#x5316;&#x7248;&#x672C;&#x7684;&#x5E94;&#x7528;&#x505A;&#x4E86;&#x66F4;&#x5C11;&#x7684;&#x5DE5;&#x4F5C;&#xFF0C;&#x4ECE;&#x800C;&#x83B7;&#x5F97;&#x66F4;&#x597D;&#x7684;&#x6027;&#x80FD;&#xFF1B;</p>
+<div class="note promiry">
+  &#x6CE8;&#x610F;&#xFF1A; &#x8FD9;&#x4E2A;&#x201C;&#x4F18;&#x5316;&#x201D;&#x7248;&#x672C;&#x4E5F;&#x4E0D;&#x662F;&#x6700;&#x597D;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4ECD;&#x7136;&#x64CD;&#x4F5C;&#x6BCF;&#x4E2A;&#x6B63;&#x65B9;&#x5F62;&#x7684; top &#x5C5E;&#x6027;&#x3002;&#x66F4;&#x597D;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x53EA;&#x64CD;&#x4F5C;&#x5F71;&#x54CD;&#x5408;&#x6210;&#x7684;&#x5C5E;&#x6027;&#x3002;&#x6709;&#x5173;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x53C2;&#x89C1;<a url="https://developers.google.com/web/fundamentals/performance/rendering/stick-to-compositor-only-properties-and-manage-layer-count#use_transform_and_opacity_changes_for_animations">Use transform and opacity changes for animations </a>
+</div>
+
+<h2 id="&#x4E0B;&#x4E00;&#x6B65;">&#x4E0B;&#x4E00;&#x6B65;</h2>
+<p><em>RAIL</em>&#x6A21;&#x578B;&#x662F;&#x4E86;&#x89E3;&#x6027;&#x80FD;&#x7684;&#x57FA;&#x7840;&#x3002;&#x8BE5;&#x6A21;&#x578B;&#x544A;&#x8BC9;&#x4F60;&#xFF0C;&#x5BF9;&#x7528;&#x6237;&#x800C;&#x8A00;&#xFF0C;&#x54EA;&#x4E9B;&#x662F;&#x6700;&#x91CD;&#x8981;&#x7684;&#x6027;&#x80FD;&#x6307;&#x6807;&#x3002;&#x6709;&#x5173;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x67E5;&#x770B;<a href="https://web.dev/rail/" target="_blank">Measure performance with the RAIL model</a></p>
+<p>&#x66F4;&#x591A;&#x7684;&#x5B9E;&#x8DF5;&#x80FD;&#x8BA9;&#x4F60;&#x5BF9;<strong>Performance</strong>&#x9009;&#x9879;&#x5361;&#x66F4;&#x52A0;&#x7684;&#x719F;&#x6089;&#x3002;&#x8BF7;&#x5C1D;&#x8BD5;&#x5BF9;&#x4F60;&#x81EA;&#x5DF1;&#x7684;&#x9875;&#x9762;&#x8FDB;&#x884C;&#x5206;&#x6790;&#xFF0C;&#x5E76;&#x5206;&#x6790;&#x7ED3;&#x679C;&#x3002;&#x5982;&#x679C;&#x4F60;&#x5BF9;&#x4F60;&#x7684;&#x7ED3;&#x679C;&#x6709;&#x4EFB;&#x4F55;&#x7591;&#x95EE;&#xFF0C;<a href="https://stackoverflow.com/questions/ask?tags=google-chrome-devtools" target="_blank">&#x53EF;&#x4EE5;&#x5728;Stack Overflow&#x53D1;&#x5E03;&#x4E00;&#x4E2A;&#x6807;&#x6709;<code>google-chrome-devtools</code>&#x6807;&#x7B7E;&#x7684;&#x95EE;&#x9898;</a>&#x3002;&#x5982;&#x679C;&#x53EF;&#x4EE5;&#xFF0C;&#x8BF7;&#x9644;&#x4E0A;&#x5C4F;&#x5E55;&#x622A;&#x56FE;&#x6216;&#x6307;&#x5411;&#x53EF;&#x590D;&#x5236;&#x9875;&#x9762;&#x7684;&#x94FE;&#x63A5;</p>
+<p>&#x8981;&#x771F;&#x6B63;&#x638C;&#x63E1;&#x8FD0;&#x884C;&#x65F6;&#x6027;&#x80FD;&#xFF0C;&#x4F60;&#x5FC5;&#x987B;&#x5B66;&#x4E60;&#x6D4F;&#x89C8;&#x5668;&#x5982;&#x4F55;&#x5C06;HTML&#x3001;CSS&#x548C;JS&#x8F6C;&#x6362;&#x4E3A;&#x5C4F;&#x5E55;&#x4E0A;&#x50CF;&#x7D20;&#x70B9;&#x3002;&#x53EF;&#x4EE5;&#x4ECE;<a href="https://developers.google.com/web/fundamentals/performance/rendering" target="_blank"> Rendering Performance Overview</a>&#x5F00;&#x59CB;&#x5B66;&#x4E60;&#x3002;<a href="https://aerotwist.com/blog/the-anatomy-of-a-frame/" target="_blank">The Anatomy Of A Frame</a>&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x6DF1;&#x5165;&#x8BA8;&#x8BBA;&#x4E86;&#x66F4;&#x591A;&#x7EC6;&#x8282;&#x3002;</p>
+<p>&#x6700;&#x540E;&#xFF0C;&#x6709;&#x8BB8;&#x591A;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x6539;&#x5584;&#x8FD0;&#x884C;&#x65F6;&#x6027;&#x80FD;&#x3002; &#x672C;&#x6559;&#x7A0B;&#x91CD;&#x70B9;&#x4ECB;&#x7ECD;&#x4E86;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x52A8;&#x753B;&#x74F6;&#x9888;&#xFF0C;&#x4EE5;&#x4F7F;&#x60A8;&#x53EF;&#x4EE5;&#x91CD;&#x70B9;&#x5173;&#x6CE8;<strong>Performance</strong>&#x9762;&#x677F;&#xFF0C;&#x4F46;&#x8FD9;&#x53EA;&#x662F;&#x60A8;&#x53EF;&#x80FD;&#x9047;&#x5230;&#x7684;&#x8BB8;&#x591A;&#x74F6;&#x9888;&#x4E4B;&#x4E00;&#x3002; &#x6E32;&#x67D3;&#x6027;&#x80FD;&#x7CFB;&#x5217;&#x7684;&#x5176;&#x4F59;&#x90E8;&#x5206;&#x63D0;&#x4F9B;&#x4E86;&#x8BB8;&#x591A;&#x6539;&#x5584;&#x8FD0;&#x884C;&#x65F6;&#x6027;&#x80FD;&#x5404;&#x4E2A;&#x65B9;&#x9762;&#x7684;&#x597D;&#x6280;&#x5DE7;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<ul>
+<li><a href="https://developers.google.com/web/fundamentals/performance/rendering/optimize-javascript-execution" target="_blank">Optimizing JS Execution</a></li>
+<li><a href="https://developers.google.com/web/fundamentals/performance/rendering/reduce-the-scope-and-complexity-of-style-calculations" target="_blank">Reduce The Scope And Complexity Of Style Calculations</a></li>
+<li><a href="https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing" target="_blank">Avoid Large, Complex Layouts And Layout Thrashing</a></li>
+<li><a href="https://developers.google.com/web/fundamentals/performance/rendering/simplify-paint-complexity-and-reduce-paint-areas" target="_blank">Simplify Paint Complexity And Reduce Paint Areas</a></li>
+<li><a href="https://developers.google.com/web/fundamentals/performance/rendering/stick-to-compositor-only-properties-and-manage-layer-count" target="_blank">Stick To Compositor-Only Properties And Manage Layer Count</a></li>
+<li><a href="https://developers.google.com/web/fundamentals/performance/rendering/debounce-your-input-handlers" target="_blank">Debounce Your Input Handlers</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../data-type/transform.html" class="navigation navigation-prev " aria-label="Previous page: 类型转换">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="error-monitoring.html" class="navigation navigation-next " aria-label="Next page: 页面优化-脚本错误监控上报与Script error">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"preformance选项卡的（页面性能报告生成和解读）","level":"10.1","depth":1,"next":{"title":"页面优化-脚本错误监控上报与Script error","level":"10.2","depth":1,"path":"pages/preformance/error-monitoring.md","ref":"pages/preformance/error-monitoring.md","articles":[]},"previous":{"title":"类型转换","level":"7.1","depth":1,"path":"pages/data-type/transform.md","ref":"pages/data-type/transform.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/preformance/DevTools-preformance.md","mtime":"2020-07-13T12:54:53.441Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-13T12:55:31.597Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
